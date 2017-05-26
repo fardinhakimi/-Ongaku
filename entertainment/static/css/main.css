@@ -1,0 +1,96 @@
+
+.card{
+border: solid 1px #dedfe3;
+padding:0px 0px 10px 0px;
+border-radius: 5px;
+margin-left: 10px;
+box-sizing: border-box;
+text-align: center;
+margin-top: 3%;
+background: #fff;
+}
+.card-img-top{
+display: inline-block;
+width: 100%;
+border-bottom: solid 1px #dedfe3;
+border-radius: 5px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}
+body{
+background: #f0f1f3;
+}
+.navbar{
+border-radius: 0px;
+margin-bottom:0px;
+}
+.jumbotron{
+padding-top: 80px;
+padding-bottom: 80px;
+    text-align: center;
+    background: url(../images/muse.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.album-name h1{
+color: #fff;
+font-size: 36px;
+
+}
+
+.album-logo img{
+ height: 100px;
+ width: 100px;
+ border-radius: 100%;
+}
+
+.registration-box{
+padding: 20px;
+}
+
+.registration-form input{
+min-width= 100% !important;
+height: 30px;
+border: solid 1px #ccc;
+outline: none;
+border-radius: 4px;
+}
+.registration-form input:focus{
+border-color: #000;
+}
+
+.profile-pic{
+height: 50px;
+width:50px;
+border-radius: 100px;
+}
+
+.main-header{
+padding: 0px 30px;
+}
+
+.dashboard .navigation-box{
+
+border-right: solid 2px #ccc;
+}
+
+.dashboard{
+padding: 20px 0px;
+}
+
+.dashboard .dash-profile-img {
+ padding-bottom: 10px;
+ margin-bottom: 10px;
+ text-align: center;
+ border-bottom: solid 1px #ccc;
+}
+.dashboard .dash-profile-img img{
+ height: 150px;
+ width: 150px;
+  border-radius: 100px;
+}
+
+.dashboard .nav-pills>li{
+ width: 100%;
+}
+

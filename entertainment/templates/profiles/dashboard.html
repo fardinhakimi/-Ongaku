@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{%block title%}Dashboard{%endblock title %}
+{%block content %}
+<div class="container dashboard">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 navigation-box">
+            <div class="dash-profile-img">
+                <img   src="{{user.profile.profile_picture.url}}">
+                <p>{{user.username}}</p>
+
+            </div>
+
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
+                <li><a data-toggle="pill" href="#settings">Settings</a></li>
+                <li><a data-toggle="pill" href="#menu3">Favorites</a></li>
+                <li><a data-toggle="pill" href="#menu3">Recently Reviewed/Rated</a></li>
+                <li><a data-toggle="pill" href="#menu3">Give Feedback</a></li>
+                <li><a data-toggle="pill" href="#menu3">FAQ</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-6 col-xs-12 col-sm-6">
+
+
+            <div class="tab-content col-md-12">
+                <div id="profile" class="tab-pane fade in active">
+                    <h3>Profile</h3>
+                    <p>
+                        <label>username: </label> {{user.username}}
+                    </p>
+                    <p>
+                        <label>first name: </label> {{user.first_name}}
+                    </p>
+
+                    <p>
+                        <label>last name: </label> {{user.last_name}}
+                    </p>
+
+                    <p>
+                        <label>gender: </label> {{user.profile.gender}}
+                    </p>
+
+                    <p>
+                        <label>gender: </label> {{user.profile.birth_date}}
+                    </p>
+
+                    <p>
+                        <label>address: </label> {{user.profile.address}}
+                    </p>
+                </div>
+                <div id="settings" class="tab-pane fade">
+                    <h3>Settings</h3>
+                    <form class="form-horizontal registration-form" method="post" action="" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        {%
+                        {{ user_form.as_p }}
+                        {{ profile_form.as_p }}
+                        %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-md-8">
+                                <button type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="form-horizontal registration-form" method="post" action="{% url 'profiles:change-password' %}">
+                    <h3>Change Password </h3>
+                        {%csrf_token%}
+                        {{ change_password_form.as_p }}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-md-8">
+                                <button type="submit" class="btn btn-success">Change Password</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

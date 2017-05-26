@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{%block title %} Album Details {%endblock title%}
+{%block content %}
+
+<div class="jumbotron">
+    <div class="album-logo"><img src="{{album.logo.url}}"></div>
+    <div class="album-name"><h1>{{album.name}}</h1></div>
+</div>
+<div class="container">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <h2>Album Information</h2>
+        <p><label>Artist:</label> {{album.artist}}</p>
+        <p><label>Generation:</label> {{album.genre}}</p>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <h2>Songs Lists</h2>
+        {% for song in Album.song_set.all%}
+        {{ song.name}}
+        {%endfor %}
+
+    </div>
+
+</div>
+
+{%endblock content%}
