@@ -14,7 +14,9 @@
                     {{album.name}}
                     <form method="post" action=" {% url 'music:album-delete' album.id %}">
                         {% csrf_token %}
+                        {% if album.user.id == request.user.id %}
                       <button type="submit"><span class="glyphicon glyphicon-trash">Delete</span></button>
+                        {%endif %}
                     </form>
 
                 </h4>

@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 # Create your models here.
 
 class Album(models.Model):
+    # a user can have many albums
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default = "")
     artist = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     genre = models.CharField(max_length=255)
