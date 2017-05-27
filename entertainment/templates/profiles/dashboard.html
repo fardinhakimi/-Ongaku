@@ -5,7 +5,12 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 navigation-box">
             <div class="dash-profile-img">
+                {%if user.profile.profile_picture.url is not None%}
                 <img   src="{{user.profile.profile_picture.url}}">
+                {%else%}
+                <img   src="">
+                <input type="file"><label>Upload Profile Picture</label>
+                {%endif %}
                 <p>{{user.username}}</p>
 
             </div>
@@ -14,9 +19,7 @@
                 <li class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
                 <li><a data-toggle="pill" href="#settings">Settings</a></li>
                 <li><a data-toggle="pill" href="#menu3">Favorites</a></li>
-                <li><a data-toggle="pill" href="#menu3">Recently Reviewed/Rated</a></li>
-                <li><a data-toggle="pill" href="#menu3">Give Feedback</a></li>
-                <li><a data-toggle="pill" href="#menu3">FAQ</a></li>
+                <li><a data-toggle="pill" href="#menu3">Albums</a></li>
             </ul>
 
         </div>

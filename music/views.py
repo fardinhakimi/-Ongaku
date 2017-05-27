@@ -3,8 +3,10 @@ from __future__ import unicode_literals
 from django.views import generic
 from .models import Album
 from .models import Song
+from .forms import SongForm
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+
 
 # IndexView Class
 class IndexView(generic.ListView):
@@ -20,7 +22,6 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Album
     template_name = "music/detail.html"
-
 
 
 # django class based form
@@ -52,17 +53,19 @@ class AlbumDelete(DeleteView):
     success_url = reverse_lazy('music:index')
 
 
-
 # django class based form
 class SongCreate(CreateView):
-    model = Song
+
     template_name ="music/song_form.html"
+    form_class = SongForm
 
-    fields = ["name","album","file_type"]
+    def get_form_kwargs(self):
+        kwargs = super(SongCreate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
 
-    def get_queryset(self):
-        base_qs = super(SongCreate, self).get_queryset()
-        return base_qs.filter(user=self.request.user)
+def updateProfilePic(request):
+    pass
 
 
 
