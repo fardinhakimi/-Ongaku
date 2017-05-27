@@ -22,11 +22,22 @@ class Album(models.Model):
         return self.name
 
 class Song(models.Model):
+
+    File_Type_CHOICES = (
+
+        ('mp3', 'mp3'),
+        ('wav', 'wav'),
+    )
+
     # on deletion of the album deletes the child songs
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    file_type = models.CharField(max_length=10)
+    file_type = models.CharField(max_length=20, default= "----", choices=File_Type_CHOICES)
     name = models.CharField(max_length=255)
     is_favorite = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse("music:detail", kwargs={"pk": self.pk})
+
     def __str__(self):
         return self.name
 

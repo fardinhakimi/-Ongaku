@@ -14,9 +14,18 @@
         <p><label>Owner:</label> {{album.user.username}}</p>
     </div>
     <div class="col-md-6 col-sm-12 col-xs-12">
-        <h2>Songs Lists</h2>
-        {% for song in Album.song_set.all%}
-        {{ song.name}}
+        <h2>Songs</h2>
+
+        {% for song in album.song_set.all%}
+        <div class="song-box">
+        <div class="accordion-btn-box">{{song.name}} <button class="accordion pull-right"><i class="glyphicon glyphicon-plus"></i></button></div>
+
+
+        <div class="panel">
+            <p></p>
+        </div>
+        </div>
+
         {%endfor %}
 
     </div>
